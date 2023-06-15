@@ -2,7 +2,6 @@ import Head from "next/head";
 
 import { useEffect, useState } from "react";
 import ApplePayButton from "@/modules/ApplePayButton";
-import snakeCaseKeys from "snakecase-keys";
 
 const config = {
   amount: 12.99,
@@ -52,8 +51,7 @@ const Home = () => {
         country: config.country,
         payment_method: {
           method: "applepay",
-          // The Gr4vy API expects the Apple Pay token to use snake_case keys
-          token: snakeCaseKeys(applePayToken),
+          token: applePayToken,
         },
       }),
     });
